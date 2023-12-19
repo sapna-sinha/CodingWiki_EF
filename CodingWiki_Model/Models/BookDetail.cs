@@ -19,7 +19,7 @@ namespace CodingWiki_Model.Models
 
         [ForeignKey("Book")]
         public int Book_Id { get; set; }
-        public Book Book { get; set; }
+        public virtual Book Book { get; set; }
 
 
     }

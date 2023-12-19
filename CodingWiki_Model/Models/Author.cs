@@ -16,7 +16,7 @@ namespace CodingWiki_Model.Models
         [MaxLength(50)]
         public string FirstName { get; set; }
         [Required]
-        public int LastName { get; set; }
+        public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Location { get; set; }
         [NotMapped]
@@ -28,6 +28,6 @@ namespace CodingWiki_Model.Models
             }
         }
 
-        public List<BookAuthorMap> BookAuthorMap { get; set; }
+        public virtual List<BookAuthorMap> BookAuthorMap { get; set; }
     }
 }

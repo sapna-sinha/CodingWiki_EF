@@ -70,6 +70,12 @@ namespace CodingWiki_DataAccess.Data
                 new Publisher { Publisher_Id = 2, Name = "Pub 2 John", Location = "New York" },
                 new Publisher { Publisher_Id = 3, Name = "Pub 3 Ben", Location = "Hawaii" }
                 );
+
+            modelBuilder.Entity<Author>().HasData(
+                new Author { Author_Id = 1, FirstName = "Ben", LastName= "Park"},
+                new Author { Author_Id = 2, FirstName = "Emliy", LastName = "Rhodes" },
+                new Author { Author_Id = 3, FirstName = "Jes", LastName = "William" }
+                );
         }
     }
 }

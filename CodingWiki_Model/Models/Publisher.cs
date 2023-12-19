@@ -15,6 +15,6 @@ namespace CodingWiki_Model.Models
         [Required]
         public string Name { get; set; }
         public string Location { get; set; }
-        public List<Fluent_Book> Books { get; set; }
+        public virtual List<Book> Books { get; set; }
     }
 }

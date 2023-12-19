@@ -28,6 +28,6 @@ namespace CodingWiki_Model.Models.Fluent_Models
             }
         }
         //public List<Fluent_Book> Books { get; set; }
-         public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; }
+         public virtual List<Fluent_BookAuthorMap> BookAuthorMap { get; set; }
     }
 }

@@ -16,14 +16,14 @@ namespace CodingWiki_Model.Models.Fluent_Models
         public decimal Price { get; set; }
         public string PriceRange { get; set; }
 
-        public Fluent_BookDetail BookDetail { get; set; }
+        public virtual Fluent_BookDetail BookDetail { get; set; }
 
         //[ForeignKey("Publisher")]
         public int Publisher_Id { get; set; }
-        public Fluent_Publisher Publisher { get; set; }
+        public virtual Fluent_Publisher Publisher { get; set; }
 
         //public List<Fluent_Author> Authors { get; set; }
 
-        public List<Fluent_BookAuthorMap> BookAuthorMap { get; set; }
+        public virtual List<Fluent_BookAuthorMap> BookAuthorMap { get; set; }
     }
 }

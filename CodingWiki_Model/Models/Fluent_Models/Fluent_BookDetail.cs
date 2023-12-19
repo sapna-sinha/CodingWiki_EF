@@ -19,7 +19,7 @@ namespace CodingWiki_Model.Models.Fluent_Models
 
        // [ForeignKey("Book")]
         public int Book_Id { get; set; }
-        public Fluent_Book Book { get; set; }
+        public virtual Fluent_Book Book { get; set; }
 
 
     }

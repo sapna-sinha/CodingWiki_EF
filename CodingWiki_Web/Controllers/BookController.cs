@@ -16,14 +16,25 @@ namespace CodingWiki_Web.Controllers
         }
         public IActionResult Index()
         {
-            List<Book> bookList = _db.Books.Include(u=>u.Publisher).ToList();
-            //foreach(var obj in bookList)
+             IQueryable<Book> bookList = _db.Books.Include(u=>u.Publisher).Include(u=>u.BookAuthorMap)
+                .ThenInclude(u=>u.Author);
+
+            var temp = bookList.Where(u=>u.BookId == 1).ToList();
+
+            //List<Book> bookList = _db.Books.ToList();
+            //foreach (var obj in bookList)
             //{
             //    //least efficient
-            //   // obj.Publisher = _db.Publishers.Find(obj.Publisher_Id);
+            //    // obj.Publisher = _db.Publishers.Find(obj.Publisher_Id);
 
             //    //more efficient
-            //   _db.Entry(obj).Reference(u=>u.Publisher).Load();
+            //    _db.Entry(obj).Reference(u => u.Publisher).Load();
+            //    _db.Entry(obj).Collection(u => u.BookAuthorMap).Load();
+            //    foreach (var bookAuth in obj.BookAuthorMap)
+            //    {
+            //        _db.Entry(bookAuth).Reference(u => u.Author).Load();
+            //        //_db.Entry(bookAuth).Reference(u => u.Book).Load();
+            //    }
             //}
             return View(bookList);
         }
@@ -128,7 +139,7 @@ namespace CodingWiki_Web.Controllers
 
         public IActionResult ManageAuthors(int id)
         {
-            BookAuthorVM obj = new()
+            BookAuthorVM obj = new BookAuthorVM()
             {
                 BookAuthorList = _db.BookAuthorMaps.Include(u => u.Author).Include(u => u.Book)
                      .Where(u => u.Book_Id == id).ToList(),
